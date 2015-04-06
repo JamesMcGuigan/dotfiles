@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+# Prints out your ip onto the command line
+# Install:
+#   pip install pif logging
+#   ensure user can write to /var/og
+
+import logging
+import pif
+
+public_ip = pif.get_public_ip()
+print public_ip
+
+logging.basicConfig(filename='/var/log/ip.log', format='%(asctime)s %(message)s', level=logging.DEBUG)
+logging.debug(public_ip);

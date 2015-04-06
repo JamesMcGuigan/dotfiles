@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Pretty Prints Json from command line pipe, alias for python -m json.tool
+# Usage: echo '{"a":1}' | ppjson
+# @doc https://docs.python.org/2/library/json.html
+
+python -m json.tool
