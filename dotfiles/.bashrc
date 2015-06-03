@@ -4,7 +4,7 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-export PATH="/usr/local/bin:$PATH:~/bin:~/github/command-line-scripts"
+export PATH="/usr/local/bin:$PATH:~/Dropbox/Programming/command-line-scripts/"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"      # gnu coreutils
 export PATH="$PATH:/Applications/BB10 WebWorks SDK 2.1.0.13/cordova-blackberry/bin/dependencies/bb-tools/bin"
 export PATH="$PATH:~/.git-scripts"               
