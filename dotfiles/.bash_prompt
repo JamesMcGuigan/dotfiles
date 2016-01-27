@@ -14,8 +14,12 @@
   if [ "$TERM" == "screen" ]; then SCREENPROMPT='\[\033k\033\\\]'; else SCREENPROMPT=''; fi;
 
 # set a fancy prompt
+if [ `hostname` == 'James-MacBook-Pro.local' ]; then
+    PS1="$CYAN[\t]$GREEN\u$WHITE@$GREEN\h$WHITE:$YELLOW\w$GIT_PS1$WHITE$SCREENPROMPT$DOLLAR $NC"
+else
+    PS1="$GREEN[\t]$PURPLE\u$WHITE@$PURPLE${HOSTNAME}$WHITE:$YELLOW\w$GIT_PS1$WHITE$SCREENPROMPT$DOLLAR $NC"
+fi
 #PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$ $NC"
-PS1="$CYAN[\t]$GREEN\u$WHITE@$GREEN\h$WHITE:$YELLOW\w$GIT_PS1$WHITE$SCREENPROMPT$DOLLAR $NC"
 #PS1="$PURPLE[\t]${BLUE}dev$NC:\w$DOLLAR "
 #PS1=$cyan'[\t] \[\e]0;\w\a\]\[\e[32m\]\u:\[\e[33m\]\w\[\e[0m\]\$ '
 alias blackprompt='PS1="$BLUE[\t]$NC\u@\h$BOLD:$NC\w $DOLLAR "; ';
