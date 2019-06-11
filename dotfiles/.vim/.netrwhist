@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/jamie/Dropbox/Programming/JoinSAM/sandbox/maven-helloworld'
-let g:netrw_dirhist_2='/Users/jamie/Dropbox/Programming/JoinSAM/backend/joinsamCRM'
-let g:netrw_dirhist_3='/Users/jamie/Dropbox/Scripts'
-let g:netrw_dirhist_4='/Users/jamie/Dropbox/Programming/Commercial/VML/PremierLeague/code/premierleague.com/data_services/cms/cq/jcr_root/etc/designs/premierleague/clientlibs'
-let g:netrw_dirhist_5='/Users/jamie/Dropbox/Programming/Commercial/VML/PremierLeague/code/premierleague.com/data_services/cms/cq/jcr_root/etc/designs/premierleague/clientlibs/js'
-let g:netrw_dirhist_6='/Users/jamie/Dropbox/Programming/Commercial/VML/PremierLeague/code/premierleague.com/data_services/cms/cq/jcr_root/etc/designs/premierleague/clientlibs/js/widgets'
-let g:netrw_dirhist_7='/Users/jamie/Dropbox/Programming/Commercial/VML/PremierLeague/code/premierleague.com/data_services/cms/cq/jcr_root/etc/designs/premierleague/clientlibs/js'

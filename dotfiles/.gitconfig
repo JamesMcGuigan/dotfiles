@@ -1,6 +1,8 @@
 [user]
 	name = JamesMcGuigan
-	email = james.mcguigan@gmail.com
+	email = james.mcguigan.github@gmail.com
+    signk = D6248E79
+	signingkey = B46F3B7A
 [log]
 	decorate = full
 [color]
@@ -33,3 +35,5 @@
 	postBuffer = 2M
 [push]
 	default = simple
+[pull]
+	rebase = true

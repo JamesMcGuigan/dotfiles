@@ -15,7 +15,9 @@ if [[ -f ./jsl.conf ]]; then CONF=./jsl.conf; else CONF=~/.jsl.conf; fi;
 
 echo "--- Validating code with JavaScript Lint ---"
 ANYERRORS=''
+echo "DIR: $DIR"
 for FILE in `find $DIR -name '*.js' -not -path '*vendor*' -not -path '*node_modules*' -not -path '*bower*' -not -path '*lib/python*'`; do
+    echo $FILE
 	ERROR=`($JSL -nologo -conf $CONF -process $FILE) | grep '[1-9] error\|ECMA'`;
 	if [[ $ERROR != '' ]]; then
 		ANYERRORS=1

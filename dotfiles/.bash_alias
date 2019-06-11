@@ -25,6 +25,7 @@ alias tail='tail -n 20 '
 alias vltl='vlt ' # common typo
 alias emacs='/usr/bin/emacs -nw '
 alias gnuemacs='/usr/bin/emacs -nw '
+alias matlab='matlab -nosplash -nodesktop'
 #alias xemacs='xemacs -nw '
 
 #yo () {
@@ -37,7 +38,7 @@ alias gnuemacs='/usr/bin/emacs -nw '
 #    [[ -x ./node_modules/yeoman/bin/yeomaninsight.py ]] && ./node_modules/yeoman/bin/yeomaninsight.py || echo npm install yeoman
 #}
 
-if [[ ! `xargs -v 2>&1 | grep gnu.org` ]];  then 
+if [[ ! `xargs -v 2>&1 | grep gnu.org` ]];  then
     alias xargs='xargs -o '
 fi;
 
@@ -50,7 +51,7 @@ fi
 alias fink='sudo fink '
 
 # Auto sudo vim
-vi () { 
+vi () {
     if   [ $1 == '' ];              then /usr/bin/vim
     elif [ ! -f $1 ] || [ -w $1  ]; then /usr/bin/vim ${@//:/ +};  # filename.js:45 -> filename +45
     else

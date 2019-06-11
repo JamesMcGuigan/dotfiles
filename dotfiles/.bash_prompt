@@ -15,9 +15,9 @@
 
 # set a fancy prompt
 if [ `hostname` == 'James-MacBook-Pro.local' ]; then
-    PS1="$CYAN[\t]$GREEN\u$WHITE@$GREEN\h$WHITE:$YELLOW\w$GIT_PS1$WHITE$SCREENPROMPT$DOLLAR $NC"
+    PS1="\n$CYAN[\t]$GREEN\u$WHITE@$GREEN\h$WHITE:$YELLOW\w$GIT_PS1$WHITE$SCREENPROMPT$DOLLAR $NC\n"
 else
-    PS1="$GREEN[\t]$PURPLE\u$WHITE@$PURPLE${HOSTNAME}$WHITE:$YELLOW\w$GIT_PS1$WHITE$SCREENPROMPT$DOLLAR $NC"
+    PS1="\n$GREEN[\t]$PURPLE\u$WHITE@$PURPLE${HOSTNAME}$WHITE:$YELLOW\w$GIT_PS1$WHITE$SCREENPROMPT$DOLLAR $NC\n"
 fi
 #PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$ $NC"
 #PS1="$PURPLE[\t]${BLUE}dev$NC:\w$DOLLAR "

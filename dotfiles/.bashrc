@@ -4,16 +4,34 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-export PATH="/usr/local/bin:$PATH:~/Dropbox/Programming/command-line-scripts/"
+export PATH="/usr/local/bin:/usr/local/sbin/:$PATH:~/Dropbox/Programming/command-line-scripts"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"      # gnu coreutils
+export PATH="$PATH:/usr/local/opt/gpg-agent/bin"
 export PATH="$PATH:/Applications/BB10 WebWorks SDK 2.1.0.13/cordova-blackberry/bin/dependencies/bb-tools/bin"
-export PATH="$PATH:~/.git-scripts"               
-export PATH="$PATH:./node_modules/.bin"               
+export PATH="$PATH:~/Library/Haskell/bin"
+export PATH="$PATH:./.local/.bin"
+export PATH="$PATH:~/.git-scripts"
+export PATH="$PATH:./node_modules/.bin"
+export PATH="$PATH:./venv/bin"
 export PATH="$PATH:/usr/local/share/python"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="$PATH:/usr/texbin"
+export PATH="$PATH:/usr/texbin"
+export PATH="$PATH:/Applications/MATLAB_R2018a.app/bin/"
+export PATH="$PATH:/usr/local/opt/qt/bin"
+
+
 export PYTHONSTARTUP="/Users/jamie/.pythonstartup"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.6`
-export HOMEBREW_GITHUB_API_TOKEN='c0a4b23af01f71531bd166e81e9713f865762de0'
+export JAVA_HOME=`/usr/libexec/java_home`
+export HOMEBREW_GITHUB_API_TOKEN='abdcd91af9bdd639feadde76d69d6da83bbf98b0'
+export M2=`brew --prefix maven`/libexec/bin
+export M2_HOME=`brew --prefix maven`/libexec
+
+#export HADOOP_VERSION=$(hadoop version | awk '/Hadoop/ { print $2 }')
+export HADOOP_HOME=/usr/local/Cellar/hadoop/$HADOOP_VERSION
+export HADOOP_CONF_DIR=$HADOOP_HOME/libexec/etc/hadoop
+export PIG_HOME=/usr/local/Cellar/pig/0.16.0
+
+
 
 export   SHELL=bash
 export  EDITOR=vim
@@ -66,7 +84,7 @@ bind 'set visible-stats on'             # Show file info in complete
 case "$TERM" in
     xterm*|rxvt*) PROMPT_COMMAND='history -a; echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"' ;;
     dumb*)        PS1=$PROMPT_COMMAND'\u@\h:\w\$ ' ;;
-    *)            ;; 
+    *)            ;;
 esac
 
 # welcome message
@@ -80,23 +98,40 @@ if [ "$TERM" != "dumb" ]; then
     done;
 
     for FILE in \
+        ~/.rvm/scripts/rvm \
         /etc/bash_completion \
         ~/.bash_completion \
         ~/.bash_completion_grails \
         /etc/bash_completion.d/git-completion.bash \
         /usr/local/etc/bash_completion.d/git-completion.bash \
-	~/.git-prompt.sh
+        ~/.git-prompt.sh
     do
         if [[ -f $FILE ]]; then . $FILE; fi;
     done;
-      
+
     #if [[ `which bower`   ]]; then bower completion;           fi;  # slow
     #if [[ `which npm`     ]]; then eval "$(npm completion -)"; fi;  # slow
 
-    if [[ `which fortune` ]]; then echo; fortune; echo; fi; 
+    if [[ `which fortune` ]]; then echo; fortune; echo; fi;
     if [[ `which ddate`   ]]; then       ddate;   echo; fi
     #if [ "$TERM" != "screen" ]; then
     #    #updatedb > /dev/null &
     #    /usr/bin/screen development
     #fi
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/serverless.bash ] && . /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/slss.bash ] && . /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/slss.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

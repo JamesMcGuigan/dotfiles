@@ -6,7 +6,8 @@ filetype plugin indent on              " load plugins based on filetype from ~/.
 autocmd  BufWinEnter * filetype detect " reload definitions on window switch
 "set verbose=3
 
-colorscheme darkblue
+"" colorscheme darkblue
+colorscheme desert
 set nocompatible     " don't emulate borked features from vi
 set number           " Show line numbers
 set shell=bash

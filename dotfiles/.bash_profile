@@ -28,3 +28,5 @@ export WEBWORKS_HOME
 PATH="$WEBWORKS_HOME:$WEBWORKS_HOME/cordova-blackberry/bin/dependencies/bb-tools/bin:${PATH}"
 export PATH
 # End comments by InstallAnywhere on Tue Aug 12 23:07:19 BST 2014 2.
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

@@ -91,7 +91,7 @@ greplocate() {
 alias gitawkmodified=" git st | awk '/modified:/  { print \$2 }'"
 alias gitawkdeleted="  git st | awk '/deleted:/   { print \$2 }'"
 alias gitawkadded="    git st | awk '/added:/     { print \$2 }'"
-alias gitawkuntracted="git clean --dry-run | awk '{ print \$2 }'"
+alias gitawkuntracted="git clean --dry-run | awk '{ print \$3 }'"
 
 function awkf() {
     ($(isNumeric $1) && /usr/bin/awk "//    { print \$$1 }" $2 $3 $4 $5 $6 $7 $8 $9) ||
@@ -134,6 +134,7 @@ alias awkdir5="awk2 | perl -p -e 's!(^([^/]*/?){5}).*!\$1!' | sort | uniq "
 alias awkdir6="awk2 | perl -p -e 's!(^([^/]*/?){6}).*!\$1!' | sort | uniq "
 
 alias rgrepcss='    rgrep --include="*.css" '
+alias rgrepscss='   rgrep --include="*.scss" '
 alias rgrephtml='   rgrep --include="*.html" '
 alias rgrepjava='   rgrep --include="*.java" '
 alias rgrepjs='     rgrep --include="*.js" '
