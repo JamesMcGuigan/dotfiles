@@ -2,3 +2,5 @@ git-scripts
 _old
 _private
 .ssh
+.now
+.netrwhist
