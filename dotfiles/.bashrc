@@ -1,24 +1,10 @@
 # base-files version 4.0-4
 # ~/.bashrc: executed by bash(1) for interactive shells.
 
+source ~/.bash_path
+
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
-
-export PATH="/usr/local/bin:/usr/local/sbin/:$PATH:~/Dropbox/Programming/command-line-scripts"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"      # gnu coreutils
-export PATH="$PATH:/usr/local/opt/gpg-agent/bin"
-export PATH="$PATH:/Applications/BB10 WebWorks SDK 2.1.0.13/cordova-blackberry/bin/dependencies/bb-tools/bin"
-export PATH="$PATH:~/Library/Haskell/bin"
-export PATH="$PATH:./.local/.bin"
-export PATH="$PATH:~/.git-scripts"
-export PATH="$PATH:./node_modules/.bin"
-export PATH="$PATH:./venv/bin"
-export PATH="$PATH:/usr/local/share/python"
-export PATH="$PATH:/usr/texbin"
-export PATH="$PATH:/usr/texbin"
-export PATH="$PATH:/Applications/MATLAB_R2018a.app/bin/"
-export PATH="$PATH:/usr/local/opt/qt/bin"
-
 
 export PYTHONSTARTUP="/Users/jamie/.pythonstartup"
 export JAVA_HOME=`/usr/libexec/java_home`
@@ -103,7 +89,9 @@ if [ "$TERM" != "dumb" ]; then
         ~/.bash_completion \
         ~/.bash_completion_grails \
         /etc/bash_completion.d/git-completion.bash \
+        /usr/local/etc/bash_completion.d/bash_completion.bash \
         /usr/local/etc/bash_completion.d/git-completion.bash \
+        /usr/local/etc/bash_completion.d/*.bash \
         ~/.git-prompt.sh
     do
         if [[ -f $FILE ]]; then . $FILE; fi;
@@ -119,18 +107,6 @@ if [ "$TERM" != "dumb" ]; then
     #    /usr/bin/screen development
     #fi
 fi
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/serverless.bash ] && . /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/serverless.bash
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/sls.bash
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/slss.bash ] && . /Users/jamie/Dropbox/Programming/Sandbox/aws-serverless/node_modules/tabtab/.completions/slss.bash
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

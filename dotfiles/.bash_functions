@@ -10,11 +10,11 @@ alias path='echo -e ${PATH//:/\\n}'
 alias which='type -all'
 alias vimexec="perl -p -i -e 's/^(\S+):(\d+):.*$/\$1 +$2 /g' | xargs sh -c '</dev/tty vim \$*' " 
 
-if [[ `uname -o` == "Darwin" ]]; then
+if [[ `uname -o 2> /dev/null || uname` == "Darwin" ]]; then
     alias showhiddenfiles='defaults write com.apple.finder AppleShowAllFiles TRUE;  killall Finder'
     alias hidehiddenfiles='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
 fi
-if [[ `uname -o` == "Cygwin" ]]; then 
+if [[ `uname -o 2> /dev/null || uname` == "Cygwin" ]]; then 
     alias start='cygstart '
 fi
 

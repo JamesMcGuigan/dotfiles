@@ -4,3 +4,4 @@ _private
 .ssh
 .now
 .netrwhist
+.DS_Store

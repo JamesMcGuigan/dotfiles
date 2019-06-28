@@ -1,0 +1,17 @@
+#!/bin/bash
+
+export PATH="/usr/local/bin:/usr/local/sbin/:$PATH:~/Dropbox/Programming/command-line-scripts"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"      # gnu coreutils
+export PATH="$PATH:/usr/local/opt/gpg-agent/bin"
+export PATH="$PATH:/Applications/BB10 WebWorks SDK 2.1.0.13/cordova-blackberry/bin/dependencies/bb-tools/bin"
+export PATH="$PATH:~/Library/Haskell/bin"
+export PATH="$PATH:./.local/bin"
+export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:~/.git-scripts"
+export PATH="$PATH:./node_modules/.bin"
+export PATH="$PATH:./venv/bin"
+export PATH="$PATH:/usr/local/share/python"
+export PATH="$PATH:/usr/texbin"
+export PATH="$PATH:/Applications/MATLAB_R2018a.app/bin/"
+export PATH="$PATH:/usr/local/opt/qt/bin"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
