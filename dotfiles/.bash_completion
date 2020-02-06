@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Paperspace API Key: https://docs.paperspace.com/gradient/get-started/install-the-cli#obtaining-an-api-key
-eval "$(_GRADIENT_COMPLETE=source gradient)"
+if [[ `which gradient 2> /dev/null` ]]; then  eval "$(_GRADIENT_COMPLETE=source gradient)";  fi
 
 # Node Version Manager: https://github.com/nvm-sh/nvm/blob/master/README.md
 export NVM_DIR="$HOME/.nvm"

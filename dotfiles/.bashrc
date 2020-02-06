@@ -79,8 +79,8 @@ if [ "$TERM" != "dumb" ]; then
     #if [[ `which bower`   ]]; then bower completion;           fi;  # slow
     #if [[ `which npm`     ]]; then eval "$(npm completion -)"; fi;  # slow
 
-    if [[ `which fortune` ]]; then echo; fortune; echo; fi;
-    if [[ `which ddate`   ]]; then       ddate;   echo; fi
+    if [[ `which fortune 2> /dev/null` ]]; then echo; fortune; echo; fi;
+    if [[ `which ddate   2> /dev/null` ]]; then       ddate;   echo; fi
     #if [ "$TERM" != "screen" ]; then
     #    #updatedb > /dev/null &
     #    /usr/bin/screen development
