@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+export HOMEBREW_GITHUB_API_TOKEN='abdcd91af9bdd639feadde76d69d6da83bbf98b0'
+
+export PYTHONSTARTUP="/Users/jamie/.pythonstartup"
+export JAVA_HOME=`/usr/libexec/java_home`
+export M2=`brew --prefix maven`/libexec/bin
+export M2_HOME=`brew --prefix maven`/libexec
+export cabal_helper_libexecdir=~/.local/bin/
+
+#export HADOOP_VERSION=$(hadoop version | awk '/Hadoop/ { print $2 }')
+#export HADOOP_HOME=/usr/local/Cellar/hadoop/$HADOOP_VERSION
+#export HADOOP_CONF_DIR=$HADOOP_HOME/libexec/etc/hadoop
+#export PIG_HOME=/usr/local/Cellar/pig/0.16.0
+
+#export JAVA_REBEL="-Drebel.spring_plugin=false -noverify -javaagent:C:/JRebel/jrebel.jar"
+#export JAVA_DEBUG="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=n"
+#export JAVA_MEM="  -Xms512M -Xmx2048M -XX:MaxPermSize=512M"
+#export MAVEN_OPTS="$JAVA_MEM $JAVA_DEBUG $JAVA_REBEL"
+
+## Remove dyld: DYLD_ environment variables being ignored because main executable (/usr/bin/sudo) is setuid or setgid
+#unset LD_LIBRARY_PATH
+#unset DYLD_LIBRARY_PATH
+

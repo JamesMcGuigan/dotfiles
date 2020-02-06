@@ -3,21 +3,9 @@
 
 source ~/.bash_path
 
+
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
-
-export PYTHONSTARTUP="/Users/jamie/.pythonstartup"
-export JAVA_HOME=`/usr/libexec/java_home`
-export HOMEBREW_GITHUB_API_TOKEN='abdcd91af9bdd639feadde76d69d6da83bbf98b0'
-export M2=`brew --prefix maven`/libexec/bin
-export M2_HOME=`brew --prefix maven`/libexec
-
-#export HADOOP_VERSION=$(hadoop version | awk '/Hadoop/ { print $2 }')
-export HADOOP_HOME=/usr/local/Cellar/hadoop/$HADOOP_VERSION
-export HADOOP_CONF_DIR=$HADOOP_HOME/libexec/etc/hadoop
-export PIG_HOME=/usr/local/Cellar/pig/0.16.0
-
-
 
 export   SHELL=bash
 export  EDITOR=vim
@@ -30,15 +18,6 @@ export HISTCONTROL=ignoreboth      # ... and ignore same sucessive entries.
 export COMP_CVS_REMOTE=1           # Define to access remotely checked-out files over passwordless ssh for CVS
 export COMP_CONFIGURE_HINTS=1      # Define to avoid stripping description in --option=description of './configure --help'
 export COMP_TAR_INTERNAL_PATHS=1   # Define to avoid flattening internal contents of tar files
-
-# Remove dyld: DYLD_ environment variables being ignored because main executable (/usr/bin/sudo) is setuid or setgid
-unset LD_LIBRARY_PATH
-unset DYLD_LIBRARY_PATH
-
-#export JAVA_REBEL="-Drebel.spring_plugin=false -noverify -javaagent:C:/JRebel/jrebel.jar"
-#export JAVA_DEBUG="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=n"
-#export JAVA_MEM="  -Xms512M -Xmx2048M -XX:MaxPermSize=512M"
-#export MAVEN_OPTS="$JAVA_MEM $JAVA_DEBUG $JAVA_REBEL"
 
 # see http://www.caliban.org/bash/index.shtml
 #shopt -s cdspell
@@ -76,6 +55,7 @@ esac
 # welcome message
 if [ "$TERM" != "dumb" ]; then
     for FILE in \
+        ~/.bash_vars \
         ~/.bash_prompt \
         ~/.bash_alias  \
         ~/.bash_functions;
@@ -84,10 +64,9 @@ if [ "$TERM" != "dumb" ]; then
     done;
 
     for FILE in \
+        ~/.bash_completion* \
         ~/.rvm/scripts/rvm \
         /etc/bash_completion \
-        ~/.bash_completion \
-        ~/.bash_completion_grails \
         /etc/bash_completion.d/git-completion.bash \
         /usr/local/etc/bash_completion.d/bash_completion.bash \
         /usr/local/etc/bash_completion.d/git-completion.bash \
@@ -107,7 +86,3 @@ if [ "$TERM" != "dumb" ]; then
     #    /usr/bin/screen development
     #fi
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
