@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export HOMEBREW_GITHUB_API_TOKEN='abdcd91af9bdd639feadde76d69d6da83bbf98b0'
+export HOMEBREW_GITHUB_API_TOKEN='cef028e497010f5e1db7c9a411529091c9319bcf'
 
 export PYTHONSTARTUP="/Users/jamie/.pythonstartup"
 export JAVA_HOME=`/usr/libexec/java_home`
