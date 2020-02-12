@@ -2,11 +2,14 @@
 
 export HOMEBREW_GITHUB_API_TOKEN='cef028e497010f5e1db7c9a411529091c9319bcf'
 
-export PYTHONSTARTUP="/Users/jamie/.pythonstartup"
-export JAVA_HOME=`/usr/libexec/java_home`
-export M2=`brew --prefix maven`/libexec/bin
-export M2_HOME=`brew --prefix maven`/libexec
+export PYTHONSTARTUP="$HOME/.pythonstartup"
+export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
 export cabal_helper_libexecdir=~/.local/bin/
+
+if [[ `uname -o 2> /dev/null || uname` == "Darwin" ]]; then
+  export M2=`brew --prefix maven`/libexec/bin
+  export M2_HOME=`brew --prefix maven`/libexec
+fi
 
 #export HADOOP_VERSION=$(hadoop version | awk '/Hadoop/ { print $2 }')
 #export HADOOP_HOME=/usr/local/Cellar/hadoop/$HADOOP_VERSION
