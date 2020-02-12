@@ -26,6 +26,7 @@ alias vltl='vlt ' # common typo
 alias emacs='/usr/bin/emacs -nw '
 alias gnuemacs='/usr/bin/emacs -nw '
 alias matlab='matlab -nosplash -nodesktop'
+alias dropboxignore="xattr -w com.dropbox.ignored 1"  # https://stackoverflow.com/a/59514558/748503
 #alias xemacs='xemacs -nw '
 
 #yo () {
