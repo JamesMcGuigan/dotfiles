@@ -5,6 +5,7 @@ export PATH="/usr/local/bin:/usr/local/sbin/:/usr/local/opt/coreutils/libexec/gn
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:./venv/bin"
 export PATH="$PATH:./.local/bin"
+export PATH="$PATH:~/.config/yarn/global/node_modules/.bin/"
 
 export PATH="$PATH:~/Dropbox/Programming/command-line-scripts"
 export PATH="$PATH:/usr/local/opt/qt/bin"
