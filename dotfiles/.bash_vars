@@ -7,8 +7,9 @@ export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
 export cabal_helper_libexecdir=~/.local/bin/
 
 if [[ `uname -o 2> /dev/null || uname` == "Darwin" ]]; then
-  export M2=`brew --prefix maven`/libexec/bin
-  export M2_HOME=`brew --prefix maven`/libexec
+  # `brew --prefix maven` == /usr/local/opt/maven  # slow command
+  export M2_HOME=/usr/local/opt/maven/libexec
+  export      M2=/usr/local/opt/maven/libexec/bin
 fi
 
 #export HADOOP_VERSION=$(hadoop version | awk '/Hadoop/ { print $2 }')
