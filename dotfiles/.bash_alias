@@ -29,6 +29,11 @@ alias matlab='matlab -nosplash -nodesktop'
 alias dropboxignore="xattr -w com.dropbox.ignored 1"  # https://stackoverflow.com/a/59514558/748503
 #alias xemacs='xemacs -nw '
 
+if [[ -f '/usr/share/sounds/ubuntu/stereo/system-ready.ogg' ]]; then
+    alias beep='paplay /usr/share/sounds/ubuntu/stereo/system-ready.ogg'
+fi
+
+
 #yo () {
 #    [[ -x ./node_modules/yo/cli.js ]] && ./node_modules/yo/cli.js || echo npm install yo
 #}
