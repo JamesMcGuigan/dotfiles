@@ -2,6 +2,7 @@
 
 export PATH="/usr/local/bin:/usr/local/sbin/:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
+export PATH="$PATH:/usr/local/anaconda3/bin"
 export PATH="$PATH:./.anaconda3/bin"
 export PATH="$PATH:./.local/bin"
 export PATH="$PATH:./node_modules/.bin"
