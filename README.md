@@ -12,6 +12,6 @@ find `pwd`/.* -maxdepth 0 -type f |
     parallel "ln -svf {} ~/{= s:^.*/::; s:\@`uname`:: =}"
 
 find `pwd`/.* -maxdepth 0 -type d | 
-    grep -v '.idea$\|/.git$\|\.$' | 
-    parallel "echo ln -svf {} ~/"
+    grep -v '.idea\|/.git\|\.$' | 
+    parallel "ln -svf {} ~/"
 ```
