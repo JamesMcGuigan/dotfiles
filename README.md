@@ -2,7 +2,16 @@
 
 James McGuigan's personal dotfiles and CLI scripts 
 
-```
+```bash
 git clone git@github.com:JamesMcGuigan/dotfiles.git
-ln -svf `pwd`/dotfiles/.* ~/
+cd dotfiles
+
+find `pwd`/.* -maxdepth 0 -type f | 
+    grep -v '\.md$' | 
+    grep -v $(echo '@\(Darwin\|Linux\|CYGWIN_NT-10.0\)$' | sed "s/`uname`/^$/") |
+    parallel "ln -svf {} ~/{= s:^.*/::; s:\@`uname`:: =}"
+
+find `pwd`/.* -maxdepth 0 -type d | 
+    grep -v '.idea$\|/.git$\|\.$' | 
+    parallel "echo ln -svf {} ~/"
 ```

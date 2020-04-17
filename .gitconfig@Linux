@@ -1,0 +1,44 @@
+[user]
+	name = JamesMcGuigan
+	email = james.mcguigan.github@gmail.com
+    signk = D6248E79
+	signingkey = B46F3B7A
+[log]
+	decorate = full
+[color]
+	ui = auto
+	interactive = auto
+[pager]
+	status = false
+	diff = true
+	show-branch = true
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	staged = diff --cached
+	unstaged = diff
+	both = diff HEAD
+	oneline = log --oneline
+	amend = commit --amend
+	stat = status --short
+    lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1"
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+	ignorecase = false
+#[credential]
+#	helper = osxkeychain
+[http]
+	postBuffer = 2M
+[push]
+	default = simple
+[pull]
+	rebase = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
