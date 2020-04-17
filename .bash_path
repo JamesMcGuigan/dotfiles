@@ -14,8 +14,9 @@ export PATH="$PATH:~/.local/bin"
 export PATH="$PATH:~/.rvm/bin"
 export PATH="$PATH:~/Library/Haskell/bin"
 
+export PATH="$PATH:~/.scripts"
 export PATH="$PATH:~/.git-scripts"
-export PATH="$PATH:~/Dropbox/Programming/command-line-scripts"
+
 
 for APP_DIR in \
   /usr/local/opt/qt/bin \

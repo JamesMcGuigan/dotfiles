@@ -1,8 +1,21 @@
-git-scripts
-_old
+# Passwords and Keys
+.ssh/
 _private
-.ssh
-.now
-.netrwhist
+.now/
+
+# Work In Progress
+_old
+*.wip
+*.wip.*
+
+# OS and IDE
 .DS_Store
-.idea
+.idea/
+
+# Libraries and Compiler Output
+node_modules/
+venv/
+venv_*/
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
