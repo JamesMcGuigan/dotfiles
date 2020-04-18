@@ -34,10 +34,12 @@ function conda-activate () {
       fi
   fi
   unset __conda_setup
-  if [[ $0 ]]; then
-    conda activate $0
-  fi;
   # <<< conda initialize <<<
+
+  conda info --envs
+  if [[ $1 ]]; then
+    conda activate $1
+  fi;
 }
 
 ### SSH Functions ###
