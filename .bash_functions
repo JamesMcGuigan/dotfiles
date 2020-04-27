@@ -8,13 +8,13 @@ alias ......='cd ../../..'
 alias ........='cd ../../../..'
 alias path='echo -e ${PATH//:/\\n}'
 alias which='type -all'
-alias vimexec="perl -p -i -e 's/^(\S+):(\d+):.*$/\$1 +$2 /g' | xargs sh -c '</dev/tty vim \$*' " 
+alias vimexec="perl -p -i -e 's/^(\S+):(\d+):.*$/\$1 +$2 /g' | xargs sh -c '</dev/tty vim \$*' "
 
 if [[ `uname -o 2> /dev/null || uname` == "Darwin" ]]; then
     alias showhiddenfiles='defaults write com.apple.finder AppleShowAllFiles TRUE;  killall Finder'
     alias hidehiddenfiles='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
 fi
-if [[ `uname -o 2> /dev/null || uname` == "Cygwin" ]]; then 
+if [[ `uname -o 2> /dev/null || uname` == "Cygwin" ]]; then
     alias start='cygstart '
 fi
 
@@ -36,10 +36,10 @@ function conda-activate () {
   unset __conda_setup
   # <<< conda initialize <<<
 
-  conda info --envs
   if [[ $1 ]]; then
     conda activate $1
   fi;
+  conda info --envs
 }
 
 ### SSH Functions ###
@@ -47,7 +47,7 @@ function conda-activate () {
 function sshr () {
     echo ssh -R 12345:localhost:22 "$@"; echo;
     ssh -R 12345:localhost:22 "$@"
-} 
+}
 
 ### Ping Functions ###
 
@@ -244,7 +244,7 @@ function rgrep () {
     GREP_COLOR='35;1' nice grep -rHIin --no-messages --color=always "$@" $dir \
         --exclude-dir='*.vimbackup' --exclude-dir='.svn' --exclude-dir='target' --exclude-dir='.git' --exclude-dir='platforms' --exclude-dir='node_modules' \
         --exclude='*.tmp' --exclude='*~' --exclude='*.min.*' --exclude='.vlt' --exclude='*.swp' \
-        | grep -v '^.{1000}' 
+        | grep -v '^.{1000}'
 }
 function fgrep () {
     rgrep --color=never -l "$@"
