@@ -5,6 +5,7 @@ export HOMEBREW_GITHUB_API_TOKEN='75bb21919219d6d1f5952162e7a473d3bec05fa4'
 
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
+export PGDATA=/var/lib/pgsql/data
 export cabal_helper_libexecdir=~/.local/bin/
 
 if [[ `uname -o 2> /dev/null || uname` == "Darwin" ]]; then
@@ -12,6 +13,7 @@ if [[ `uname -o 2> /dev/null || uname` == "Darwin" ]]; then
   export M2_HOME=/usr/local/opt/maven/libexec
   export      M2=/usr/local/opt/maven/libexec/bin
 fi
+
 
 #export HADOOP_VERSION=$(hadoop version | awk '/Hadoop/ { print $2 }')
 #export HADOOP_HOME=/usr/local/Cellar/hadoop/$HADOOP_VERSION
