@@ -19,6 +19,7 @@ export PATH="$PATH:~/.git-scripts"
 
 
 for APP_DIR in \
+  /usr/local/pgsql/bin \
   /usr/local/opt/qt/bin \
   /usr/local/opt/gpg-agent/bin \
   /usr/local/share/python \
