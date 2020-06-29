@@ -38,3 +38,10 @@ for CUDA_LIB_DIR in `find /usr/local/cuda-$CUDA_VERSION/extras/*/lib*/          
 
 export            PATH=`echo $PATH            | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $PATH
 export LD_LIBRARY_PATH=`echo $LD_LIBRARY_PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $LD_LIBRARY_PATH
+
+# Link OSX zlib
+if [[ -d '/usr/local/opt/zlib' ]]; then
+  export LDFLAGS="-L/usr/local/opt/zlib/lib"
+  export CPPFLAGS="-I/usr/local/opt/zlib/include"
+  export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+fi
