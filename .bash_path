@@ -25,7 +25,8 @@ for APP_DIR in \
   /usr/local/share/python \
   /usr/texbin \
   /Applications/MATLAB_R2018a.app/bin/ \
-  /Applications/BB10 WebWorks SDK 2.1.0.13/cordova-blackberry/bin/dependencies/bb-tools/bin
+  /Applications/BB10 WebWorks SDK 2.1.0.13/cordova-blackberry/bin/dependencies/bb-tools/bin \
+  /usr/local/opt/libarchive/bin
 do
   if [[ -d $APP_DIR ]]; then export PATH="$PATH:$APP_DIR"; fi;
 done;
