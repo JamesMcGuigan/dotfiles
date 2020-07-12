@@ -9,6 +9,7 @@ alias ........='cd ../../../..'
 alias path='echo -e ${PATH//:/\\n}'
 alias which='type -all'
 alias vimexec="perl -p -i -e 's/^(\S+):(\d+):.*$/\$1 +$2 /g' | xargs sh -c '</dev/tty vim \$*' "
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
 if [[ `uname -o 2> /dev/null || uname` == "Darwin" ]]; then
     alias showhiddenfiles='defaults write com.apple.finder AppleShowAllFiles TRUE;  killall Finder'
