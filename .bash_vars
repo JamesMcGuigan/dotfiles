@@ -3,6 +3,7 @@
 export HOMEBREW_GITHUB_API_TOKEN='0800d579990e29784b289fa4103fabac97b59b38'
 export HOMEBREW_GITHUB_API_TOKEN='75bb21919219d6d1f5952162e7a473d3bec05fa4'
 
+export PYTHONPATH='.'
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
 export PGDATA=/var/lib/pgsql/data
