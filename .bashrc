@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # base-files version 4.0-4
 # ~/.bashrc: executed by bash(1) for interactive shells.
 
