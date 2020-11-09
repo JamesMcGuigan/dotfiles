@@ -1,5 +1,10 @@
 #!/bin/bash
 
+export GOPATH="$HOME/.go/"
+export PYTHONPATH='.'
+export PYTHONSTARTUP="$HOME/.pythonstartup"
+export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
+
 export PATH="/usr/local/bin:/usr/local/sbin/:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 export PATH="$PATH:/usr/local/anaconda3/bin"
@@ -13,7 +18,9 @@ export PATH="$PATH:~/.cabal/bin"
 export PATH="$PATH:~/.cargo/bin"
 export PATH="$PATH:~/.local/bin"
 export PATH="$PATH:~/.rvm/bin"
+export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:~/Library/Haskell/bin"
+
 
 export PATH="$PATH:~/.scripts"
 export PATH="$PATH:~/.git-scripts"
