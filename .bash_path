@@ -5,6 +5,9 @@ export PYTHONPATH='.'
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
 
+export AWKPATH="$HOME/code/ecosystem-research/awkmath/modules"
+export PATH="$PATH:~/code/ecosystem-research/awkmath/gawk"
+
 export PATH="/usr/local/bin:/usr/local/sbin/:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 export PATH="$PATH:/usr/local/anaconda3/bin"
