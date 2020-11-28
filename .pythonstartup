@@ -11,50 +11,59 @@ except IOError: pass
 atexit.register(readline.write_history_file, histfile)
 del os, histfile, readline, rlcompleter
 
-
 # Import commonly used modules
-import argparse; print("import argparse")
-import atexit; print("import atexit")
-import base64; print("import base64")
-import codecs; print("import codecs")
-import contextlib; print("import contextlib")
-import functools; print("import functools")
-import gc; print("import gc")
-import glob; print("import glob")
-import gzip; print("import gzip")
-import humanize; print("import humanize")
-import inspect; print("import inspect")
-import itertools; print("import itertools")
-import joblib; print("import joblib")
-import json5; print("import json5")
-import json; print("import json")
-import math; print("import math")
-import multiprocessing; print("import multiprocessing")
-import numpy as np; print("import numpy as np")
-import os; print("import os")
-import pandas as pd; print("import pandas as pd")
-import pickle; print("import pickle")
-import pytest; print("import pytest")
-import random; print("import random")
-import re; print("import re")
-import signal; print("import signal")
-import simplejson; print("import simplejson")
-import string; print("import string")
-import sys; print("import sys")
-import time; print("import time")
-import timeit; print("import timeit")
-import torch; print("import torch")
-import traceback; print("import traceback")
-import xxhash; print("import xxhash")
-import zlib; print("import zlib")
+import importlib
+for module in [
+    "argparse",
+    "atexit",
+    "base64",
+    "codecs",
+    "contextlib",
+    "functools",
+    "gc",
+    "glob",
+    "gzip",
+    "humanize",
+    "inspect",
+    "itertools",
+    "joblib",
+    "json5",
+    "json",
+    "math",
+    "multiprocessing",
+    "os",
+    "pickle",
+    "pytest",
+    "random",
+    "re",
+    "signal",
+    "simplejson",
+    "string",
+    "sys",
+    "time",
+    "timeit",
+    "torch",
+    "traceback",
+    "xxhash",
+    "zlib",
+]:
+    if importlib.util.find_spec(module):
+        try:   importlib.import_module(module); print(f'import {module}')
+        except ModuleNotFoundError: pass
 
 from collections import *; print("from collections import *")
 from copy import copy, deepcopy; print("from copy import copy, deepcopy")
 from dataclasses import dataclass; print("from dataclasses import dataclass")
 from enum import Enum; print("from enum import Enum")
-from fastcache import clru_cache; print("from fastcache import clru_cache")
 from itertools import accumulate, chain, combinations, combinations_with_replacement, compress, count, cycle, dropwhile; print("from itertools import accumulate, chain, combinations, combinations_with_replacement, compress, count, cycle, dropwhile")
 from itertools import filterfalse, groupby, islice, permutations, product, repeat, starmap, takewhile, tee, zip_longest; print("from itertools import filterfalse, groupby, islice, permutations, product, repeat, starmap, takewhile, tee, zip_longest")
 from operator import itemgetter; print("from operator import itemgetter")
 from struct import Struct; print("from struct import Struct")
 from typing import *; print("from typing import *")
+
+try:    import numpy as np; print("import numpy as np")
+except: pass
+try:    import pandas as pd; print("import pandas as pd")
+except: pass
+try:    from fastcache import clru_cache; print("from fastcache import clru_cache")
+except: pass
