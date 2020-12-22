@@ -1,9 +1,19 @@
 #!/bin/bash
 
+
+if [[ -x /usr/libexec/java_home ]]; then
+    export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
+else
+    # sudo update-alternatives --config java
+    # export JAVA_HOME="/usr/lib/jvm/java-15-oracle"
+    export JAVA_HOME=$(update-alternatives --query java | grep Value | cut -d" " -f2 | sed 's!\(\/.*\)jre\(.*\)!\1!g; ; s!/bin/java!!g')
+fi
+export JDK_HOME=${JAVA_HOME}
+export JRE_HOME=${JDK_HOME}/jre/
+
 export GOPATH="$HOME/.go/"
 export PYTHONPATH='.'
 export PYTHONSTARTUP="$HOME/.pythonstartup"
-export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
 
 export AWKPATH="$HOME/code/ecosystem-research/awkmath/modules"
 export PATH="$PATH:~/code/ecosystem-research/awkmath/gawk"
