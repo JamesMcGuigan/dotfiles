@@ -26,7 +26,8 @@ alias vltl='vlt ' # common typo
 alias emacs='/usr/bin/emacs -nw '
 alias gnuemacs='/usr/bin/emacs -nw '
 alias matlab='matlab -nosplash -nodesktop'
-alias dropboxignore="xattr -w com.dropbox.ignored 1"  # https://stackoverflow.com/a/59514558/748503
+alias dropboxignore="xattr -w com.dropbox.ignored 1"               # https://stackoverflow.com/a/59514558/748503
+alias mshell='mvn com.github.johnpoth:jshell-maven-plugin:1.3:run' # https://stackoverflow.com/questions/47705036/in-jshell-how-to-import-classpath-from-a-maven-project
 #alias xemacs='xemacs -nw '
 
 if [[ -f '/usr/share/sounds/ubuntu/stereo/system-ready.ogg' ]]; then
