@@ -92,3 +92,21 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 export PATH=`echo $PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'`  # Deduplicate $PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jamie/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jamie/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jamie/.anaconda3/etc/profile.d/conda.sh"
+    else
+        echo $PATH
+        export PATH="/home/jamie/.anaconda3/bin:$PATH"
+        echo $PATH
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
