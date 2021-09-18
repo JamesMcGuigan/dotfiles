@@ -29,3 +29,7 @@ export LEIN_JVM_OPTS="-XX:TieredStopAtLevel=1"
 ## Remove dyld: DYLD_ environment variables being ignored because main executable (/usr/bin/sudo) is setuid or setgid
 #unset LD_LIBRARY_PATH
 #unset DYLD_LIBRARY_PATH
+
+if [[ -d ~/.mujoco/mujoco200/bin ]]; then
+  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:~/.mujoco/mujoco200/bin"
+fi;
