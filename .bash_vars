@@ -12,6 +12,9 @@ if [[ `uname -o 2> /dev/null || uname` == "Darwin" ]]; then
   export      M2=/usr/local/opt/maven/libexec/bin
 fi
 
+# Leiningen (Clojure): https://stackoverflow.com/questions/61211695/openjdk-64-bit-server-vm-warning-options-xverifynone-and-noverify-were-depre
+export LEIN_JVM_OPTS="-XX:TieredStopAtLevel=1"
+
 
 #export HADOOP_VERSION=$(hadoop version | awk '/Hadoop/ { print $2 }')
 #export HADOOP_HOME=/usr/local/Cellar/hadoop/$HADOOP_VERSION
@@ -26,4 +29,3 @@ fi
 ## Remove dyld: DYLD_ environment variables being ignored because main executable (/usr/bin/sudo) is setuid or setgid
 #unset LD_LIBRARY_PATH
 #unset DYLD_LIBRARY_PATH
-
