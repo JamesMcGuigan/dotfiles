@@ -60,7 +60,7 @@ if [ "$TERM" != "dumb" ]; then
         ~/.bash_alias  \
         ~/.bash_functions;
     do
-        if [ -f $FILE ]; then . $FILE; fi;
+        if [ -f $FILE ]; then source $FILE; fi;
     done;
 
     for FILE in \
@@ -71,9 +71,10 @@ if [ "$TERM" != "dumb" ]; then
         /usr/local/etc/bash_completion.d/bash_completion.bash \
         /usr/local/etc/bash_completion.d/git-completion.bash \
         /usr/local/etc/bash_completion.d/*.bash \
-        ~/.git-prompt.sh
+        ~/.git-prompt.sh \
+        /opt/lucet/bin/setenv.sh  # https://bytecodealliance.github.io/lucet/Compiling-on-Linux.html
     do
-        if [[ -f $FILE ]]; then . $FILE; fi;
+        if [[ -f $FILE ]]; then source $FILE; fi;
     done;
 
     export NVM_DIR="$HOME/.nvm"

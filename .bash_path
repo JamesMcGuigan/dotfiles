@@ -44,7 +44,6 @@ export PATH="$PATH:~/Library/Haskell/bin"
 export PATH="$PATH:~/.scripts"
 export PATH="$PATH:~/.git-scripts"
 
-
 for APP_DIR in \
   /usr/local/pgsql/bin \
   /usr/local/opt/qt/bin \
@@ -73,6 +72,10 @@ if [[ -d '/usr/local/opt/zlib' ]]; then
   export LDFLAGS="-L/usr/local/opt/zlib/lib"
   export CPPFLAGS="-I/usr/local/opt/zlib/include"
   export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+fi
+
+if (compgen -G /usr/lib/llvm-*/bin > /dev/null); then
+    export LLVM_BIN=/usr/lib/llvm-*/bin
 fi
 
 #PATH="/home/jamie/perl5/bin${PATH:+:${PATH}}"; export PATH;
