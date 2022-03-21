@@ -3,7 +3,10 @@
 
 if [[ -x /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
-else
+elif [[ -d /usr/lib/jvm/default/ ]]; then
+    export JAVA_HOME=`readlink -f /usr/lib/jvm/default/`  # Arch Linux
+elif (command -v update-alternatives); then   
+    # Ubuntu Linux 
     # sudo update-alternatives --config java
     # export JAVA_HOME="/usr/lib/jvm/java-15-oracle"
     export JAVA_HOME=$(update-alternatives --query java | grep Value | cut -d" " -f2 | sed 's!\(\/.*\)jre\(.*\)!\1!g; ; s!/bin/java!!g')
