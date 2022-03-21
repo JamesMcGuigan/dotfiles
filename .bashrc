@@ -101,10 +101,9 @@ if [ $? -eq 0 ]; then
 else
     if [ -f "/home/jamie/.anaconda3/etc/profile.d/conda.sh" ]; then
         . "/home/jamie/.anaconda3/etc/profile.d/conda.sh"
-    else
-        echo $PATH
+    elif [[ -d /home/jamie/.anaconda3/bin ]]; then
         export PATH="/home/jamie/.anaconda3/bin:$PATH"
-        echo $PATH
+        # echo \$PATH = $PATH
     fi
 fi
 unset __conda_setup
