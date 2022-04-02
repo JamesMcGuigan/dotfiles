@@ -2,6 +2,7 @@
 
 export HOMEBREW_GITHUB_API_TOKEN='0800d579990e29784b289fa4103fabac97b59b38'
 export HOMEBREW_GITHUB_API_TOKEN='75bb21919219d6d1f5952162e7a473d3bec05fa4'
+export HOMEBREW_GITHUB_API_TOKEN='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'
 
 export PGDATA=/var/lib/pgsql/data
 export cabal_helper_libexecdir=~/.local/bin/
