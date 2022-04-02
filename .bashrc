@@ -18,6 +18,7 @@ export HISTCONTROL=ignoreboth      # ... and ignore same sucessive entries.
 export COMP_CVS_REMOTE=1           # Define to access remotely checked-out files over passwordless ssh for CVS
 export COMP_CONFIGURE_HINTS=1      # Define to avoid stripping description in --option=description of './configure --help'
 export COMP_TAR_INTERNAL_PATHS=1   # Define to avoid flattening internal contents of tar files
+export BASH_SILENCE_DEPRECATION_WARNING=1  # Suppressing "The default interactive shell is now zsh" message in OSX
 
 # see http://www.caliban.org/bash/index.shtml
 #shopt -s cdspell
@@ -55,10 +56,11 @@ esac
 # welcome message
 if [ "$TERM" != "dumb" ]; then
     for FILE in \
-        ~/.bash_vars \
-        ~/.bash_prompt \
-        ~/.bash_alias  \
-        ~/.bash_functions;
+        ~/.bash_vars      \
+        ~/.bash_prompt    \
+        ~/.bash_alias     \
+        ~/.bash_functions \
+        ~/.bash_conda     ;
     do
         if [ -f $FILE ]; then source $FILE; fi;
     done;
@@ -93,20 +95,4 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 export PATH=`echo $PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'`  # Deduplicate $PATH
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jamie/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jamie/.anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jamie/.anaconda3/etc/profile.d/conda.sh"
-    elif [[ -d /home/jamie/.anaconda3/bin ]]; then
-        export PATH="/home/jamie/.anaconda3/bin:$PATH"
-        # echo \$PATH = $PATH
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+source "$HOME/.cargo/env"
