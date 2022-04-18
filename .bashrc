@@ -74,13 +74,16 @@ if [ "$TERM" != "dumb" ]; then
         /usr/local/etc/bash_completion.d/git-completion.bash \
         /usr/local/etc/bash_completion.d/*.bash \
         ~/.git-prompt.sh \
+        /usr/local/src/emsdk/emsdk_env.sh \
         /opt/lucet/bin/setenv.sh  # https://bytecodealliance.github.io/lucet/Compiling-on-Linux.html
     do
-        if [[ -f $FILE ]]; then source $FILE; fi;
+        if [[ -f $FILE ]]; then source $FILE 2> /dev/null; fi;
     done;
 
+    [ -s "/opt/homebrew/bin/brew" ] && eval $(/opt/homebrew/bin/brew shellenv)  # load homebrew 
+
     export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/nvm.sh" ]          && \. "$NVM_DIR/nvm.sh"           # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
     #if [[ `which bower`   ]]; then bower completion;           fi;  # slow
