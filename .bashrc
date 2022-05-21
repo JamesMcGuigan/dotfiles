@@ -74,13 +74,24 @@ if [ "$TERM" != "dumb" ]; then
         /usr/local/etc/bash_completion.d/git-completion.bash \
         /usr/local/etc/bash_completion.d/*.bash \
         ~/.git-prompt.sh \
-        /usr/local/src/emsdk/emsdk_env.sh \
+        ~/.cargo/env \
         /opt/lucet/bin/setenv.sh  # https://bytecodealliance.github.io/lucet/Compiling-on-Linux.html
     do
         if [[ -f $FILE ]]; then source $FILE 2> /dev/null; fi;
     done;
 
-    [ -s "/opt/homebrew/bin/brew" ] && eval $(/opt/homebrew/bin/brew shellenv)  # load homebrew 
+    ### BUG: emsdk_env.sh breaks nvm $PATH - manually fix path in ~/.bash_path
+    ### emsdk_env.sh prefixes the following to $PATH:
+    ###     /usr/local/src/emsdk
+    ###     /usr/local/src/emsdk/upstream/emscripten
+    ###     /usr/local/src/emsdk/node/14.18.2_64bit/bin
+    # for FILE in \
+    #     /usr/local/src/emsdk/emsdk_env.sh
+    # do
+    #     if [[ -f $FILE ]]; then source $FILE 2> /dev/null; fi;
+    # done;
+
+    [ -s "/opt/homebrew/bin/brew" ] && eval $(/opt/homebrew/bin/brew shellenv)  # load homebrew
 
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ]          && \. "$NVM_DIR/nvm.sh"           # This loads nvm
@@ -98,4 +109,3 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 export PATH=`echo $PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'`  # Deduplicate $PATH
-source "$HOME/.cargo/env"
