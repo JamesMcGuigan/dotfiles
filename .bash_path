@@ -40,11 +40,12 @@ export PATH="$PATH:~/.rvm/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:~/Library/Haskell/bin"
 
-
 export PATH="$PATH:~/.scripts"
 export PATH="$PATH:~/.git-scripts"
 
 for APP_DIR in \
+  /root/.local/share/gem/ruby/*/bin/ \
+  ~/.local/share/gem/ruby/*/bin \
   /usr/local/pgsql/bin \
   /usr/local/opt/qt/bin \
   /usr/local/opt/gpg-agent/bin \
