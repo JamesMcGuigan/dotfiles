@@ -11,6 +11,10 @@ alias which='type -all'
 alias vimexec="perl -p -i -e 's/^(\S+):(\d+):.*$/\$1 +$2 /g' | xargs sh -c '</dev/tty vim \$*' "
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
+# Source: https://stackoverflow.com/questions/749544/pipe-to-from-the-clipboard-in-a-bash-script
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
+
 if [[ `uname -o 2> /dev/null || uname` == "Darwin" ]]; then
     alias showhiddenfiles='defaults write com.apple.finder AppleShowAllFiles TRUE;  killall Finder'
     alias hidehiddenfiles='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
