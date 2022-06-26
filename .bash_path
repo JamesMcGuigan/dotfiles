@@ -1,12 +1,65 @@
 #!/bin/bash
 
+for PATH_DIR in \
+~/.scripts \
+~/.git-scripts \
+/usr/local/bin \
+/usr/local/sbin \
+/usr/local/opt/coreutils/libexec/gnubin \
+/opt/homebrew/bin \
+/opt/homebrew/sbin \
+/usr/bin \
+/bin \
+/usr/sbin \
+/sbin \
+\
+~/code/ecosystem-research/awkmath/gawk \
+~/.yarn/bin \
+~/.config/yarn/global/node_modules/.bin \
+~/.cabal/bin \
+~/.cargo/bin \
+~/.local/bin \
+~/.rvm/bin \
+~/.go/bin \
+~/Library/Haskell/bin \
+/opt/maven/bin \
+$(find ~/Library/Python/*/bin -maxdepth 0 -type d 2> /dev/null) \
+\
+/usr/local/src/emsdk \
+/usr/local/src/emsdk/upstream/emscripten \
+/usr/local/src/emsdk/node/14.18.2_64bit/bin \
+/usr/local/opt/coreutils/libexec/gnubin \
+\
+/usr/local/pgsql/bin \
+/usr/local/opt/qt/bin \
+/usr/local/opt/gpg-agent/bin \
+/usr/local/share/python \
+/usr/local/opt/libarchive/bin \
+/usr/texbin \
+/Applications/MATLAB_R2018a.app/bin/ \
+/Applications/BB10 WebWorks SDK 2.1.0.13/cordova-blackberry/bin/dependencies/bb-tools/bin \
+\
+$(find {~,~/opt,/usr/local}/{,.}{anaconda,miniforge,miniconda}{,3}/bin -maxdepth 0 -type d 2> /dev/null)
+do
+  # Only include paths that actually exist
+  if [[ -d $PATH_DIR ]]; then
+    export PATH="$PATH:$PATH_DIR";
+    # echo $PATH_DIR;
+  fi;
+done
 
+# Relative Paths
+export PATH="./.local/bin:$PATH"
+export PATH="./node_modules/.bin:$PATH"
+
+
+# Java
 if [[ -x /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
 elif [[ -d /usr/lib/jvm/default/ ]]; then
     export JAVA_HOME=`readlink -f /usr/lib/jvm/default/`  # Arch Linux
-elif (command -v update-alternatives); then   
-    # Ubuntu Linux 
+elif (command -v update-alternatives); then
+    # Ubuntu Linux
     # sudo update-alternatives --config java
     # export JAVA_HOME="/usr/lib/jvm/java-15-oracle"
     export JAVA_HOME=$(update-alternatives --query java | grep Value | cut -d" " -f2 | sed 's!\(\/.*\)jre\(.*\)!\1!g; ; s!/bin/java!!g')
@@ -15,47 +68,32 @@ export JDK_HOME=${JAVA_HOME}
 export JRE_HOME=${JDK_HOME}/jre/
 export M2_HOME=/opt/maven
 export MAVEN_HOME=/opt/maven
-export PATH=${M2_HOME}/bin:${PATH}
+
 
 export GOPATH="$HOME/.go/"
 export PYTHONPATH='.'
 export PYTHONSTARTUP="$HOME/.pythonstartup"
-
-export AWKPATH="$HOME/code/ecosystem-research/awkmath/modules"
-export PATH="$PATH:~/code/ecosystem-research/awkmath/gawk"
-
-export PATH="/usr/local/bin:/usr/local/sbin/:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
-export PATH="$PATH:/usr/local/anaconda3/bin"
-export PATH="$PATH:./.anaconda3/bin"
-export PATH="$PATH:./.local/bin"
-export PATH="$PATH:./node_modules/.bin"
-
-export PATH="$PATH:~/.yarn/bin"
-export PATH="$PATH:~/.config/yarn/global/node_modules/.bin/"
-export PATH="$PATH:~/.cabal/bin"
-export PATH="$PATH:~/.cargo/bin"
-export PATH="$PATH:~/.local/bin"
-export PATH="$PATH:~/.rvm/bin"
-export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:~/Library/Haskell/bin"
+# export AWKPATH="$HOME/code/ecosystem-research/awkmath/modules"
 
 
-export PATH="$PATH:~/.scripts"
-export PATH="$PATH:~/.git-scripts"
+# Link OSX zlib
+if [[ -d '/usr/local/opt/zlib' ]]; then
+  export LDFLAGS="-L/usr/local/opt/zlib/lib"
+  export CPPFLAGS="-I/usr/local/opt/zlib/include"
+  export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+fi
+if (compgen -G /usr/lib/llvm-*/bin > /dev/null); then
+    export LLVM_BIN=/usr/lib/llvm-*/bin
+fi
 
-for APP_DIR in \
-  /usr/local/pgsql/bin \
-  /usr/local/opt/qt/bin \
-  /usr/local/opt/gpg-agent/bin \
-  /usr/local/share/python \
-  /usr/texbin \
-  /Applications/MATLAB_R2018a.app/bin/ \
-  /Applications/BB10 WebWorks SDK 2.1.0.13/cordova-blackberry/bin/dependencies/bb-tools/bin \
-  /usr/local/opt/libarchive/bin
-do
-  if [[ -d $APP_DIR ]]; then export PATH="$PATH:$APP_DIR"; fi;
-done;
+
+# PERL 5
+#PATH="/home/jamie/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/home/jamie/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/home/jamie/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/home/jamie/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/home/jamie/perl5"; export PERL_MM_OPT;
+
 
 # CUDA Environment Setup: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#environment-setup
 CUDA_VERSION="10.1"
@@ -64,22 +102,7 @@ for CUDA_BIN_DIR in `find /usr/local/cuda-$CUDA_VERSION/bin                     
 for CUDA_LIB_DIR in `find /usr/local/cuda-$CUDA_VERSION/targets/x86_64-linux/lib*/ -maxdepth 0 2> /dev/null`; do export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$CUDA_LIB_DIR"; done;
 for CUDA_LIB_DIR in `find /usr/local/cuda-$CUDA_VERSION/extras/*/lib*/             -maxdepth 0 2> /dev/null`; do export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$CUDA_LIB_DIR"; done;
 
+
+# Deduplicate
 export            PATH=`echo $PATH            | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $PATH
 export LD_LIBRARY_PATH=`echo $LD_LIBRARY_PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $LD_LIBRARY_PATH
-
-# Link OSX zlib
-if [[ -d '/usr/local/opt/zlib' ]]; then
-  export LDFLAGS="-L/usr/local/opt/zlib/lib"
-  export CPPFLAGS="-I/usr/local/opt/zlib/include"
-  export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
-fi
-
-if (compgen -G /usr/lib/llvm-*/bin > /dev/null); then
-    export LLVM_BIN=/usr/lib/llvm-*/bin
-fi
-
-#PATH="/home/jamie/perl5/bin${PATH:+:${PATH}}"; export PATH;
-#PERL5LIB="/home/jamie/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-#PERL_LOCAL_LIB_ROOT="/home/jamie/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-#PERL_MB_OPT="--install_base \"/home/jamie/perl5\""; export PERL_MB_OPT;
-#PERL_MM_OPT="INSTALL_BASE=/home/jamie/perl5"; export PERL_MM_OPT;
