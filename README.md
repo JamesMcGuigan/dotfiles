@@ -7,7 +7,7 @@ git clone git@github.com:JamesMcGuigan/dotfiles.git
 cd dotfiles
 
 find `pwd`/.* -maxdepth 0 -type f | 
-    grep -v '\.md$' | 
+    grep -v '\.(md|yml)$' | 
     grep -v $(echo '@\(Darwin\|Linux\|CYGWIN_NT-10.0\)$' | sed "s/`uname`/^$/") |
     parallel "ln -svf {} ~/{= s:^.*/::; s:\@`uname`:: =}"
 

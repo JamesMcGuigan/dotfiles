@@ -1,12 +1,13 @@
 #!/bin/bash
+# DOCS: https://www.youtube.com/watch?v=w2qlou7n7MA&list=RDCMUCR1-GEpyOPzT2AO4D_eifdw&index=2&ab_channel=JeffHeaton
+# DOCS: https://developer.apple.com/metal/tensorflow-plugin/
+# conda env create -n metal -f tensorflow-apple-metal.yml
 
-for CONDA_DIR in \
-    /home/$USER/.anaconda3  \
-    /home/$USER/anaconda3   \
-    /Users/$USER/.anaconda3 \
-    /Users/$USER/anaconda3  ;
-do
-    if [[ -d $CONDA_DIR ]]; then
+CONDA_DIRS=$(find {~,~/opt,/usr/local}/{,.}{anaconda,miniforge,miniconda}{,3} -maxdepth 0 -type d 2> /dev/null)
+for CONDA_DIR in $CONDA_DIRS; do
+    if [[ -d $CONDA_DIR && -f $CONDA_DIR/bin/conda ]]; then
+        # echo conda initialize $CONDA_DIR
+
         # !! Contents within this block are managed by 'conda init' !!
         # >>> conda initialize >>>
         __conda_setup="$($CONDA_DIR/bin/conda 'shell.bash' 'hook' 2> /dev/null)"
@@ -24,3 +25,12 @@ do
         # <<< conda initialize <<<
     fi
 done
+
+# cat ~/.condarc
+# echo $CONDA_DEFAULT_ENV
+# echo $CONDA_PREFIX
+if [[ $(conda env list | grep '^metal ') ]]; then
+  CONDA_DEFAULT_ENV=metal
+  conda activate $CONDA_DEFAULT_ENV
+  # PS1=$(echo $PS1 | sed 's/\\n//')
+fi
