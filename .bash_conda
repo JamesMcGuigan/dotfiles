@@ -27,10 +27,9 @@ for CONDA_DIR in $CONDA_DIRS; do
 done
 
 # cat ~/.condarc
-# echo $CONDA_DEFAULT_ENV
-# echo $CONDA_PREFIX
-if [[ $(conda env list | grep '^metal ') ]]; then
-  CONDA_DEFAULT_ENV=metal
+CONDA_DEFAULT_ENV=miniforge
+if [[ $(conda env list | grep "^$CONDA_DEFAULT_ENV ") ]]; then
   conda activate $CONDA_DEFAULT_ENV
+  # echo -ne "\n($CONDA_PREFIX)"
   # PS1=$(echo $PS1 | sed 's/\\n//')
 fi

@@ -3,4 +3,4 @@
 # echo $CONDA_DEFAULT_ENV
 # conda activate $CONDA_DEFAULT_ENV
 
-changeps1: True
+changeps1: False
