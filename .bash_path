@@ -23,12 +23,13 @@ for PATH_DIR in \
 ~/.go/bin \
 ~/Library/Haskell/bin \
 /opt/maven/bin \
-$(find ~/Library/Python/*/bin -maxdepth 0 -type d 2> /dev/null) \
+$(find ~/.local/share/gem/ruby/*/bin -maxdepth 0 -type d 2> /dev/null) \
+$(find ~/Library/Python/*/bin        -maxdepth 0 -type d 2> /dev/null) \
 \
 /usr/local/src/emsdk \
 /usr/local/src/emsdk/upstream/emscripten \
-/usr/local/src/emsdk/node/14.18.2_64bit/bin \
 /usr/local/opt/coreutils/libexec/gnubin \
+$(find /usr/local/src/emsdk/node/*/bin  -maxdepth 0 -type d 2> /dev/null) \
 \
 /usr/local/pgsql/bin \
 /usr/local/opt/qt/bin \
