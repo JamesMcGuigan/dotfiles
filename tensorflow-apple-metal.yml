@@ -1,6 +1,11 @@
 # Source: https://raw.githubusercontent.com/jeffheaton/t81_558_deep_learning/master/tensorflow-apple-metal.yml
+# DOCS:   https://www.youtube.com/watch?v=w2qlou7n7MA&t=677s&ab_channel=JeffHeaton
+# DOCS:   https://github.com/jeffheaton/t81_558_deep_learning/blob/master/install/tensorflow-install-mac-metal-jul-2021.ipynb
 # DOCS:   https://developer.apple.com/metal/tensorflow-plugin/
 # conda env create -n metal -f tensorflow-apple-metal.yml
+# conda install nb_conda
+# python -m ipykernel install --user --name metal --display-name "Python 3.9 (miniforge | metal)"
+
 name: tensorflow
  
 dependencies:
@@ -20,6 +25,7 @@ dependencies:
     - pyyaml
     - flask
     - boto3
+    - nb_conda
     - pip:
         - tensorflow-macos  # current ==2.9.2 | was ==2.5.0
         - tensorflow-metal  # current ==0.5.0 | was ==0.1.2
