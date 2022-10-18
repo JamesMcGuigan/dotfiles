@@ -59,7 +59,7 @@ if [[ -x /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
 elif [[ -d /usr/lib/jvm/default/ ]]; then
     export JAVA_HOME=`readlink -f /usr/lib/jvm/default/`  # Arch Linux
-elif (command -v update-alternatives); then
+elif [[ $(command -v update-alternatives) ]]; then
     # Ubuntu Linux
     # sudo update-alternatives --config java
     # export JAVA_HOME="/usr/lib/jvm/java-15-oracle"
