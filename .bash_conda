@@ -27,7 +27,8 @@ for CONDA_DIR in $CONDA_DIRS; do
 done
 
 # cat ~/.condarc
-CONDA_DEFAULT_ENV=miniforge
+# conda info --envs
+CONDA_DEFAULT_ENV=base
 if [[ $(command -v conda && conda env list | grep "^$CONDA_DEFAULT_ENV ") ]]; then
   conda activate $CONDA_DEFAULT_ENV
   # echo -ne "\n($CONDA_PREFIX)"
