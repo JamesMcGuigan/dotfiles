@@ -29,6 +29,9 @@ done
 # cat ~/.condarc
 # conda info --envs
 CONDA_DEFAULT_ENV=base
+if conda env list | grep -q "miniforge"; then
+    export CONDA_DEFAULT_ENV=miniforge
+fi
 if [[ $(command -v conda && conda env list | grep "^$CONDA_DEFAULT_ENV ") ]]; then
   conda activate $CONDA_DEFAULT_ENV
   # echo -ne "\n($CONDA_PREFIX)"
