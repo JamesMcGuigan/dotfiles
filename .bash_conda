@@ -16,7 +16,8 @@ for CONDA_DIR in $CONDA_DIRS; do
         else
             if [ -f "$CONDA_DIR/etc/profile.d/conda.sh" ]; then
                 . "$CONDA_DIR/etc/profile.d/conda.sh"
-            elif [[ -d $CONDA_DIR/bin ]]; then
+            fi
+            if [[ -d $CONDA_DIR/bin ]]; then
                 export PATH="$CONDA_DIR/bin:$PATH"
                 echo \$PATH = $PATH
             fi
