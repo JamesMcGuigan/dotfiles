@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Absolute Path Order
 for PATH_DIR in \
 ~/.scripts \
 ~/.git-scripts \
@@ -18,6 +19,7 @@ for PATH_DIR in \
 ~/.config/yarn/global/node_modules/.bin \
 ~/.cabal/bin \
 ~/.cargo/bin \
+~/.pyenv/bin \
 ~/.local/bin \
 ~/.rvm/bin \
 ~/.go/bin \
@@ -70,11 +72,20 @@ export JRE_HOME=${JDK_HOME}/jre/
 export M2_HOME=/opt/maven
 export MAVEN_HOME=/opt/maven
 
-
+# Go
 export GOPATH="$HOME/.go/"
+# export AWKPATH="$HOME/code/ecosystem-research/awkmath/modules"
+
+
+# PyEnv + Python
+if command -v pyenv 1>/dev/null 2>&1; then
+  # DOCS: https://brain2life.hashnode.dev/how-to-install-pyenv-python-version-manager-on-ubuntu-2004
+  eval "$(pyenv init --path)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 export PYTHONPATH='.'
 export PYTHONSTARTUP="$HOME/.pythonstartup"
-# export AWKPATH="$HOME/code/ecosystem-research/awkmath/modules"
+
 
 
 # Link OSX zlib
