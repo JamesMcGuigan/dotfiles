@@ -3,7 +3,7 @@
 # DOCS: https://developer.apple.com/metal/tensorflow-plugin/
 # conda env create -n metal -f tensorflow-apple-metal.yml
 
-CONDA_DIRS=$(find {~,~/opt,/usr/local}/{,.}{anaconda,miniforge,miniconda}{,3} -maxdepth 0 -type d 2> /dev/null)
+CONDA_DIRS=$(find {~,~/opt,/usr/local,/opt/homebrew}/{,.}{anaconda,miniforge,miniconda}{,3} -maxdepth 0 -type d 2> /dev/null)
 for CONDA_DIR in $CONDA_DIRS; do
     if [[ -d $CONDA_DIR && -f $CONDA_DIR/bin/conda ]]; then
         # echo conda initialize $CONDA_DIR
